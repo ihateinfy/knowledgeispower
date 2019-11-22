@@ -9,7 +9,7 @@ CREATE TABLE aadhar_master (
   PRIMARY KEY (aadharId)
 );
 
-insert into aadhar_master (aadharId,firstName,lastName,address,phoneNo) values ('123456789010','Robert','Smith','#25, Millers Road, Bangalore','8756565987');,
+insert into aadhar_master (aadharId,firstName,lastName,address,phoneNo) values ('123456789010','Robert','Smith','#25, Millers Road, Bangalore','8756565987');
 insert into aadhar_master (aadharId,firstName,lastName,address,phoneNo) values ('123456789011','Jack','Williams','25/31, Cunningham Road , Bangalore','9663525543');
 insert into aadhar_master (aadharId,firstName,lastName,address,phoneNo) values ('123456789012','Jane','Miller','Twin Bungalow, Hinjewadi, Pune','9865311466');
 insert into aadhar_master (aadharId,firstName,lastName,address,phoneNo) values ('123456789013','Thomas','Lewis','F-10, Jubilee Hills, Hyderabad','9086542321');
