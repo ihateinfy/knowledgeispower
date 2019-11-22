@@ -1,0 +1,417 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/styles.ec294d85b6bb1cdfb839.css">
+    <script src="./js/jquery.min.js" rel="text/javascript"></script>
+    <script src="./js/jquery-ui.min.js" rel="text/javascript"></script>
+    <script src="./js/bootstrap.js" rel="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <nav class="uk-navbar-container uk-navbar">
+        <div class="uk-navbar-left">
+
+            <a class="uk-margin-left-small uk-button uk-button-primary decpadding" href="#" id="questions" onclick="showWelcome()">
+                ASSESSMENT INSTRUCTIONS
+            </a>
+            <a class="uk-margin-left-small uk-button uk-button-primary decpadding" href="#" id="instructions" onclick="showInstructions()">
+                PROJECT INSTRUCTIONS
+            </a>
+            <a class="uk-button uk-button-primary decpadding" href="#" id="questions" onclick="showQuestions()">
+                PROBLEM STATEMENT
+            </a>
+        </div>
+    </nav>
+
+
+
+    <div class="uk-container">
+        <div style="display:none" id="instructions_p">
+            <div>
+                <p style="margin-bottom: .0001pt; line-height: normal; background: white;">&nbsp;
+                </p>
+                <br>
+                <div align="center">
+                    <span class="heading">Spring Microservices Mock Hands-On Assessment</span>
+                </div>
+                <p style="margin-bottom: .0001pt; line-height: normal; background: white;">&nbsp;
+                </p>
+                <span class="heading">Assessment Instruction:</span>
+				                </p>
+				                <p>You will be provided with an implementation of code using Spring Boot. Please follow the steps to execute
+				                    the application:</p>
+				                <ol>
+				                    <li>Run your application as Spring Boot/Java Application</li>
+				                    
+									<li>Use the instructed port no only for executing the Spring Microservices projects.<strong>Do not change the port no</strong></li>
+								    <li>You can use SoapUI to test the backend implementation of microservices application. </li>
+                                    
+                                    <li>Refer to the <strong>log file</strong> which gets created in the project directory <strong>(To_Participants\micro_extservice-master) </strong>for debugging the code.
+                    	                &nbsp;(Execute the project and refresh the folder structure, to view the log file).
+                                    </li>
+
+                    <li><b>Do not add any new projects/classes in the given projects. Use the configurations already given. Do not edit any given configurations.</b></li>
+                     <li> You can refer to db_scripts.sql placed in src/main/resources folder of micro_extservice-master application for the sample data in database.</li>
+				                    <li><strong>Before clicking on the &ldquo;Run&rdquo; button to test your code, make sure that all the applications are running.</strong></li>
+				               
+				               <li>
+				                   To open MySQL command-line-client enter the below command 
+    <b>mysql -u root -p </b>and press enter button.
+Provide the password as <b>root</b> when prompted. 
+				               </li> </ol>
+				                </p>
+            </div>
+            <div align="center">
+                <button class="uk-button uk-button-primary uk-button-small" onclick="showWelcome();">Prev</button>&nbsp;&nbsp;
+                <button onclick="showQuestions()" class="uk-button uk-button-primary uk-button-small">Next</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div style="display:none" id="questions_p">
+            <div>
+                <div align="center">
+                    <span class="heading"> Spring Microservices Hands-On Assessment </span>
+                </div>
+
+                <p><strong>Problem Statement:</strong></p>
+                <p>In this challenge, you would be building the microservice application - ExtService where CRUD operations on Aadhar data can be done.
+        The requirement is to use the concepts of Spring Boot and Spring Microservices to implement
+                    the following functionalities :</p>
+                <ul>
+                    <li>Validate Aadhar Details</li>
+					<li>View Aadhar Details</li>
+                    <li>Update Address</li>
+                </ul>
+                <ol>
+                    <li>You are provided with all the necessary code to implement the Aadhar Module functionalities (including
+                        the repository layers for database interactions).</li>
+                    <li>You have to implement the business layer(AadharServiceImpl) and presentation layer(AadharController)
+                       <b> only </b> for the required functionalities.</li>
+                     	<li> You are also provided with the basic Spring Boot project for working with Service Registry. You have to add the necessary configurations to work with extservice Microservice.</li>
+                    <li>The Aadhar module functionalities would be validated by executing a set of JUnit test cases.</li>
+                    
+                </ol>
+                <p><strong>Important: </strong>Use SOAP UI (present on desktop) to test your end points. The project uses
+                    MySQL Database for data persistence. Use the table script given in db_scripts.sql file in resources with sample data.</p>
+
+                <p><strong>Functionalities to be implemented: </strong></p>
+                <p>The below table provides the information about the REST-endpoints to be used, sample request to be sent
+                    and the response format.</p>
+					<p><b>&nbsp;&nbsp;&nbsp;&nbsp;Note: In the below table value inside :&lt;&lt;&gt;&gt; refers to a dynamic value which can keep changing.Remove &lt;&lt;&gt;&gt; and use it as sample request  </b></p>
+                <table width="0" border="1">
+                    <tbody>
+                        <tr>
+                            <td valign="top" width="100">
+                                <p><strong>User Story</strong></p>
+                            </td>
+                            <td valign="top" width="296">
+                                <p><strong>Restful Base URL</strong></p>
+                            </td>
+                            <td valign="top" width="200">
+                                <p><strong>Sample Request</strong></p>
+                            </td>
+                            <td valign="top" width="200">
+                                <p><strong>Sample Response</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="100">
+
+                                <p><strong>Validate Aadhar</strong></p>
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar?aadharId=&lt;&lt;123456789010&gt;&gt;&firstName=&lt;&lt;Robert&gt;&gt;&lastName=&lt;&lt;Smith&gt;&gt; </p>
+
+                            </td>
+                            <td valign="top" width="210">
+                              NA
+                            </td>
+                            <td valign="top" width="200">
+							true
+                            </td>
+                        </tr>
+						
+                        <tr>
+                            <td valign="top" width="100">
+                                <p><strong>Update Address</strong></p>
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar/&lt;&lt;123456789010&gt;&gt;</p>
+
+                            </td>
+                            <td valign="top" width="200">
+                                <p>{<br/>
+								"address":"Hinjewadi, Pune"<br/>}</p>
+                            </td>
+                            <td valign="top" width="220">
+                                <p>{<br/>
+									"aadharId": "123456789010",<br/>
+									"firstName": "Robert",<br/>
+									"lastName": "Smith",<br/>
+									"phoneNo": "8756565987",<br/>
+									"address": "Hinjewadi, Pune",<br/>
+									"aadharValid": false<br/>
+								}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="100">
+                                <p><strong>View Aadhar</strong></p>
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar/&lt;&lt;8756565987&gt;&gt;</p>
+                            </td>
+                            <td valign="top" width="200">
+                                <p>NA</p>
+                            </td>
+                            <td valign="top" width="220">
+                                <p>{<br/>
+									"aadharId": "123456789010",<br/>
+									"firstName": "Robert",<br/>
+									"lastName": "Smith",<br/>
+									"phoneNo": "8756565987",<br/>
+									"address": "Hinjewadi, Pune",<br/>
+									"aadharValid": false<br/>
+								}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+               
+                <p><strong>Acceptance Criteria:</strong></p>
+                <ol>
+				<li><strong>Validate Aadhar:</strong> This module validates the passed data.
+                        <ul>
+                            <li>Check if the passed AadharId,First name and Last name parameters are valid. If so, fetch the corresponding details from database.<br/>
+							[<em>HINT</em>: invoke isInputValid() of AadharServiceValidation class]</li>
+                            <li>If the  returned aadhar instance is not null and  the First name and Last name entered by the user is matching with entity fetched from database, then return true otherwise return false with Http status code as 200. <br>  
+							
+                        </ul>
+                    </li>
+				
+                    <li><strong>Update Address:</strong> Using this module, a customer can update his address details based on his aadharId.
+                        <ul>
+							<li>The  entered aadharId must be of 12-digits. If not, throw the ExternalServiceException with parameter as ExceptionConstants.CUSTOMER_AADHAR_FORMAT_INVALID.toString()<br>
+							 [<em>HINT</em>: Refer to isInputValid() of AadharServiceValidation for the validation]
+							</li>
+                            <li>Check if the address to be updated is non-empty. If empty, then throw the ExternalServiceException with parameter as ExceptionConstants.CUSTOMER_ADDRESS_INVALID.toString()<br>
+                               [<em>HINT</em>: invoke isAddressValid() of AadharServiceValidation class]
+							   </li>
+                            <li>If the above validations criteria are satisfied, then fetch the Aadhar entity from the database. If this entity is not present, then throw ExternalServiceException with parameter as ExceptionConstants.CUSTOMER_AADHAR_INVALID.toString().
+							</li>
+							<li>If aadhar entity is present then the respective aadhar record in the database has to updated with new address. If the update operation is not successful,
+                                then throw the ExternalServiceException with parameter as ExceptionConstants.SERVER_ERROR.toString()
+                            </li>
+							<li>AadharController should return the Http status code as 200 with AadharDTO as response in case of successful updation.
+							</li>
+                        </ul>
+                    </li>
+                    <li><strong> View Customer Profile :</strong> This module helps in fetching customer's complete profile based on his phone number.                        <ul>
+							  <li>The phoneNo must be of 10 digits.If not, throw the ExternalServiceException with parameter as ExceptionConstants.CUSTOMER_PHONE_LENGTH_INVALID.toString()
+								<br/>[<em>HINT</em>:invoke isPhoneNoValid() of AadharServiceValidation class]</li>							 
+							 </li>
+							  <li>Check if the phoneNo is present in the database,then return the corresponding AadharDTO 
+							  otherwise throw the ExternalServiceException with parameter as ExceptionConstants.CUSTOMER_PHONE_INVALID.toString().
+									 <br/>[<em>HINT</em>: use getByPhoneNo() of AadharRepository to verify the entity existence and invoke prepareDTO() of AadharDTO class].
+							   </li>
+							   <li>
+								If all the validations are successful,then AadharController should return the Http status code as 200 with AadharDTO as response.
+							</li>
+				</ul>
+                    </li>
+                    <p><strong> Spring Microservices implementation: </strong>	</p>
+
+									<ol>
+										<li><strong> For eureka - Spring Boot Project:</strong>
+					                        <ul>
+
+											   <li>Configure Eureka Server to run on port no 8761 </li>
+											</ul>
+					                    </li>
+										<br>
+										
+										<li><strong>For extservice - Spring Boot Project:</strong>
+					                        <ul>
+
+											   <li>Configure extservice project to run on port no 5555 </li>
+											   <li>This project has to be get registered with eureka server using the name as <strong>"AadharMS"</strong></li>
+											   <li>Verify the extservice Microservice is working by sending the request as: http://localhost:5555/aadhar/&lt;123456789010&gt;</li>
+					                        </ul>
+					                    </li>
+									</ol>
+
+            </div>
+
+            <div align="center">
+                <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showInstructions()">Prev</button>
+            </div>
+            <p style="line-height: 115%; margin: 0cm 0cm .0001pt 18.0pt;">
+                &nbsp;
+            </p>
+        </div>
+
+        <div style="display:none" id="welcome_p">
+            <div>
+
+                <div align="center">
+                    <span class="heading"> Spring Microservices Hands-On Assessment </span>
+                </div>
+                <br>
+                <p>
+                    <span class="heading">MUST READ INSTRUCTIONS BEFORE YOU START YOUR ASSESSMENT</span>
+                </p>
+               <ul>
+			                   <li>You have been provided with an environment with the necessary softwares and tools for you to
+			                       complete
+			                       the assessment.</li>
+
+			                   <li>Please keep an eye on the time of your contest. This environment will end when test is finished by you or
+			                       your exam time runs out.</li>
+
+			                   <li>The Project has already been loaded into your environment. Execute the file &quot;Click here&quot;
+			                       to complete the setup. This will setup your IDE and open the Problem Statement and the project
+			                       specific instructions in your borwser. In case you close the tab/browser, you can execute the file
+			                       &quot;instructions.sh&quot; to reopen them.</li>
+
+			                   <li>Two buttons &#39;Execute&#39; and &#39;View Result&#39; are given in the environment. Click on
+			                       &#39;Execute&#39; to intermediately test your solution. In some cases, execution may take upto 5-7
+			                       mins
+			                      depending on the number of test cases.</li>
+
+			                   <li>You can continue working while execution is happening. Once execute completes the result will pop up
+			                       on
+			                       your window.</li>
+
+			                   <li>Click on &#39;View Result&#39; in case you want to view the last executed result again.</li>
+
+			                   <li>Submission for this component is done when you finish the test/certification as a whole.</li>
+
+			                   <li>You cannot copy the code to your system from the environment or vice-versa.</li>
+
+			                   <li>In case of any issue, you can reopen your environment by reopening the test in your browser as long
+			                       as
+			                       you have time left.</li>
+            </ul>
+            </div>
+            <div align="center">
+                <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showInstructions()">Next</button>
+            </div>
+            <br>
+        </div>
+
+        <div style="display:none" id="instructions_RC">
+            <div>
+                <div align="center">
+                    <span class="heading"> Spring Micro Services Hands-On ASSESSMENT </span>
+                </div>
+                <br>
+                <p>
+                    <span class="heading">Instructions to use RestClient</span>
+                </p>
+                <p style="line-height: normal; background: white; margin: 0cm 0cm .0001pt 18.0pt;">
+                    <strong>
+                        <u>
+                            Get Request:
+                        </u>
+                    </strong>
+                </p>
+                <ol>
+                    <li>
+                        Enter the URL in the space provided
+                        <br>
+                        <br>
+                        <img src="img/url.png" alt="image of RestClient to give URL">
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Select the HTTP Method as
+                        <strong>GET</strong>
+                        <br>
+                        <br>
+                        <img src="img/get.png" alt="image of RestClient to Set method as Get">
+                        <br>
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Click on Go
+                        <strong>(&gt;&gt;) button</strong>
+                        <br>
+
+                    </li>
+                </ol>
+                <p style="line-height: normal; background: white; margin: 0cm 0cm .0001pt 18.0pt;">
+                    <strong>
+                        <u>
+                            Post Request:
+                        </u>
+                    </strong>
+                </p>
+                <ol>
+                    <li>
+                        Enter the URL in the HTTP Request URL portion
+                        <br>
+                        <br>
+                        <img src="img/url.png" alt="image of RestClient to give URL">
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Under the
+                        <strong>method</strong> tab select
+                        <strong>POST</strong> option
+                        <br>
+                        <br>
+                        <img src="img/post.png" alt="image of RestClient to Set method as Post">
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Under the
+                        <strong>Body</strong> tab select
+                        <strong>String body</strong> from the drop down list. Next click
+                        <strong>on &lsquo;Edit Content-type &amp; Charset</strong> option and select
+                        <strong>application/json. </strong>Then click on OK button
+                        <br>
+                        <br>
+                        <img src="img/setJSON.png" alt="image of RestClient to send request body">
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Enter the required JSON string in the String body
+                        <br>
+                        <br>
+                        <img src="img/sendJSON.png" alt="image of RestClient to send JSON body">
+                        <br>
+                    </li>
+                    <br>
+                    <li>
+                        Click on Go
+                        <strong>(&gt;&gt;) button</strong>
+                        <br>
+                        <br>
+
+                    </li>
+                </ol>
+            </div>
+            <div align="center">
+                <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showInstructions()">Prev</button>
+            </div>
+            <p style="line-height: 115%; margin: 0cm 0cm .0001pt 18.0pt;">
+                &nbsp;
+            </p>
+        </div>
+    </div>
+</body>
+<script src="./js/new.js" rel="text/javascript"></script>
+<script>showWelcome();</script>
+
+</html>
