@@ -45,24 +45,20 @@
 				                <p>You will be provided with an implementation of code using Spring Boot. Please follow the steps to execute
 				                    the application:</p>
 				                <ol>
-				                    <li>Run your application as Spring Boot/Java Application</li>
-				                    
-									<li>Use the instructed port no only for executing the Spring Microservices projects.<strong>Do not change the port no</strong></li>
-								    <li>You can use SoapUI to test the backend implementation of microservices application. </li>
-                                    
-                                    <li>Refer to the <strong>log file</strong> which gets created in the project directory <strong>(To_Participants\micro_extservice-master) </strong>for debugging the code.
-                    	                &nbsp;(Execute the project and refresh the folder structure, to view the log file).
-                                    </li>
-
-                    <li><b>Do not add any new projects/classes in the given projects. Use the configurations already given. Do not edit any given configurations.</b></li>
+								<li>Run your application as Spring Boot/Java Application</li>
+                    <li>Test using SoapUI. To launch SoapUI, click on /root/Desktop/SoapUI-5.4.0/bin/soapui.sh </li>
+					<li>Use the instructed port number only for executing the Spring Microservices projects.<strong>DO NOT change the port numbers.</strong></li>
+					<li> Few necessary configurations(in all the projects) have been provided. <strong>DO NOT alter those configurations </strong></li>
+                    <li>For getting connected to MySQL database use the credentials as:
+                    	<ul><li>username: root </li>
+                    	<li>password: root </li></ul>
+                    </li>
                      <li> You can refer to db_scripts.sql placed in src/main/resources folder of micro_extservice-master application for the sample data in database.</li>
-				                    <li><strong>Before clicking on the &ldquo;Run&rdquo; button to test your code, make sure that all the applications are running.</strong></li>
-				               
-				               <li>
-				                   To open MySQL command-line-client enter the below command 
-    <b>mysql -u root -p </b>and press enter button.
-Provide the password as <b>root</b> when prompted. 
-				               </li> </ol>
+                    <li><strong>Before clicking on the &ldquo;Run&rdquo; button to test your code, make sure that all the applications are running.</strong></li>
+                    <li>Refer to the <strong>log file</strong> which gets created in the project directory <strong>(To_Participants\micro_extservice-master) </strong>for debugging the code.
+                    	&nbsp;(Execute the project and refresh the folder structure, to view the log file).
+                    </li>
+				                </ol>
 				                </p>
             </div>
             <div align="center">
@@ -109,24 +105,28 @@ Provide the password as <b>root</b> when prompted.
                             <td valign="top" width="100">
                                 <p><strong>User Story</strong></p>
                             </td>
+							<td valign="top" width="50">
+                                <p><strong>Request Type(Valid/Invalid)</strong></p>
+                            </td>
                             <td valign="top" width="296">
                                 <p><strong>Restful Base URL</strong></p>
                             </td>
                             <td valign="top" width="200">
                                 <p><strong>Sample Request</strong></p>
                             </td>
-                            <td valign="top" width="200">
+                            <td valign="top" width="350">
                                 <p><strong>Sample Response</strong></p>
                             </td>
                         </tr>
                         <tr>
-                            <td valign="top" width="100">
-
+                            <td valign="top" width="100" rowspan="2">
                                 <p><strong>Validate Aadhar</strong></p>
+                            </td>
+							<td valign="top" width="50">
+                              Valid
                             </td>
                             <td valign="top" width="296">
                                 <p>http://localhost:5555/aadhar?aadharId=&lt;&lt;123456789010&gt;&gt;&firstName=&lt;&lt;Robert&gt;&gt;&lastName=&lt;&lt;Smith&gt;&gt; </p>
-
                             </td>
                             <td valign="top" width="210">
                               NA
@@ -135,10 +135,27 @@ Provide the password as <b>root</b> when prompted.
 							true
                             </td>
                         </tr>
-						
+						<tr>
+                            <td valign="top" width="50">
+                              InValid
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar?aadharId=&lt;&lt;123456789010&gt;&gt;&firstName=&lt;&lt;John&gt;&gt;&lastName=&lt;&lt;Smith&gt;&gt; </p>
+
+                            </td>
+                            <td valign="top" width="210">
+                              NA
+                            </td>
+                            <td valign="top" width="200">
+							false
+                            </td>
+                        </tr>
                         <tr>
-                            <td valign="top" width="100">
+                            <td valign="top" width="100" rowspan="2">
                                 <p><strong>Update Address</strong></p>
+                            </td>
+							<td valign="top" width="50">
+                              Valid
                             </td>
                             <td valign="top" width="296">
                                 <p>http://localhost:5555/aadhar/&lt;&lt;123456789010&gt;&gt;</p>
@@ -159,9 +176,35 @@ Provide the password as <b>root</b> when prompted.
 								}</p>
                             </td>
                         </tr>
+						<tr>
+						<td valign="top" width="50">
+                              InValid
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar/&lt;&lt;123456789025&gt;&gt;</p>
+
+                            </td>
+                            <td valign="top" width="200">
+                                <p>{<br/>
+								"address":"Hinjewadi, Pune"<br/>}</p>
+                            </td>
+                            <td valign="top" width="220">
+                                <p>{<br/>
+                                &nbsp;&nbsp; "errors": [<br/>
+                               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {<br/>
+                               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "code": &nbsp;"customer.aadhar.invalid",<br/>
+                               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "message": "Aadhar does not exists"<br/>
+                               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+                                &nbsp;&nbsp; ]<br/>
+                                }</p>
+                            </td>
+                        </tr>
                         <tr>
-                            <td valign="top" width="100">
+                            <td valign="top" width="100" rowspan="2">
                                 <p><strong>View Aadhar</strong></p>
+                            </td>
+							<td valign="top" width="50">
+                              Valid
                             </td>
                             <td valign="top" width="296">
                                 <p>http://localhost:5555/aadhar/&lt;&lt;8756565987&gt;&gt;</p>
@@ -178,6 +221,27 @@ Provide the password as <b>root</b> when prompted.
 									"address": "Hinjewadi, Pune",<br/>
 									"aadharValid": false<br/>
 								}</p>
+                            </td>
+                        </tr>
+						<tr>
+                            <td valign="top" width="50">
+                              InValid
+                            </td>
+                            <td valign="top" width="296">
+                                <p>http://localhost:5555/aadhar/&lt;&lt;8756565988&gt;&gt;</p>
+                            </td>
+                            <td valign="top" width="200">
+                                <p>NA</p>
+                            </td>
+                            <td valign="top" width="220">
+                                <p>{<br/>
+                                &nbsp;&nbsp; "errors": [<br/>
+                               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {<br/>
+                               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  "code": &nbsp;"customer.phone.invalid",<br/>
+                               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "message": "Phone Number must be valid"<br/>
+                               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+                                &nbsp;&nbsp; ]<br/>
+                                }</p>
                             </td>
                         </tr>
                     </tbody>
@@ -266,7 +330,7 @@ Provide the password as <b>root</b> when prompted.
                 <p>
                     <span class="heading">MUST READ INSTRUCTIONS BEFORE YOU START YOUR ASSESSMENT</span>
                 </p>
-               <ul>
+               <ol>
 			                   <li>You have been provided with an environment with the necessary softwares and tools for you to
 			                       complete
 			                       the assessment.</li>
@@ -297,7 +361,7 @@ Provide the password as <b>root</b> when prompted.
 			                   <li>In case of any issue, you can reopen your environment by reopening the test in your browser as long
 			                       as
 			                       you have time left.</li>
-            </ul>
+            </ol>
             </div>
             <div align="center">
                 <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showInstructions()">Next</button>
