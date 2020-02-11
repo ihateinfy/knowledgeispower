@@ -1,0 +1,7 @@
+lib/
+To_Participants/micro_poolcarz/target
+To_Participants/api-gateway/target
+To_Participants/eureka/target
+To_Participants/api-gateway/.settings/
+To_Participants/eureka/.settings/
+To_Participants/micro_poolcarz/.settings/
