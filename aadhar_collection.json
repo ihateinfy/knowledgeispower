@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "9f1cabb3-4034-4941-9389-fa56a53f705b",
+		"name": "extservice",
+		"description": "This Collection contains APIs for extservice Application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AadharController",
+			"item": [
+				{
+					"name": "getValidAadharDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/aadhar/8756565987",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar",		
+								"8756565987"
+							]
+						},
+						"description": "This API fetches aadhar details based on Aadhar Id."
+					},
+					"response": []
+				},
+				{
+					"name": "getAadharNotExist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/aadhar/8756565988",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar",								
+								"8756565988"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidateAadhar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/aadhar?aadharId=123456789010&firstName=Robert&lastName=Smith",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar"								
+							],
+							"query": [
+								{
+									"key": "aadharId",
+									"value": "123456789010"
+								},	
+								{
+									"key": "firstName",
+									"value": "Robert"
+								},
+								{
+									"key": "lastName",
+									"value": "Smith"
+								}								
+							]							
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ValidateAadharInvalid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/aadhar?aadharId=123456789010&firstName=John&lastName=Smith",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar"								
+							],
+							"query": [
+								{
+									"key": "aadharId",
+									"value": "123456789010"
+								},	
+								{
+									"key": "firstName",
+									"value": "John"
+								},
+								{
+									"key": "lastName",
+									"value": "Smith"
+								}								
+							]							
+						}
+					},
+					"response": []
+				},				
+				{
+					"name": "updateAddressValid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\":\"Hinjewadi, Pune\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/aadhar/123456789010",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar",
+								"123456789010"								
+							]							
+						},
+						"description": "This API updates the address of an existing customer."
+					},
+					"response": []
+				},
+				{
+					"name": "updateAddressInvalid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\":\"Hinjewadi, Pune\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/aadhar/123456789025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"aadhar",
+								"123456789025"									
+							]							
+						}
+					},
+					"response": []
+				}				
+				
+			]
+		}
+	]
+}
