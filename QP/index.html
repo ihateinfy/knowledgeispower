@@ -46,7 +46,7 @@
 				                    the application:</p>
 				                <ol>
 								<li>Run your application as Spring Boot/Java Application</li>
-                    <li>Test using SoapUI. To launch SoapUI, click on /root/Desktop/SoapUI-5.4.0/bin/soapui.sh </li>
+                    <li>You need to use <b>Postman</b> tool for testing the REST endpoint </li>
 					<li>Use the instructed port number only for executing the Spring Microservices projects.<strong>DO NOT change the port numbers.</strong></li>
 					<li> Few necessary configurations(in all the projects) have been provided. <strong>DO NOT alter those configurations </strong></li>
                     <li>For getting connected to MySQL database use the credentials as:
@@ -92,10 +92,31 @@
                     <li>The Aadhar module functionalities would be validated by executing a set of JUnit test cases.</li>
                     
                 </ol>
-                <p><strong>Important: </strong>Use SOAP UI (present on desktop) to test your end points. The project uses
-                    MySQL Database for data persistence. Use the table script given in db_scripts.sql file in resources with sample data.</p>
+                <p><strong>Important: </strong> The project uses
+                    MySQL Database for data persistence. Use the table script given in db_scripts.sql file in resources with sample data. </p>
 
                 <p><strong>Functionalities to be implemented: </strong></p>
+				<p><b>Steps to verify REST endpoint using Postman.</b></p>
+				<p>We have made testing REST endpoints using Postman simpler for you by using Postman collection. Follow the below steps to import collection to the Postman and test the REST endpoints</p>
+				<ol><b>1.</b> In the Postman window, click on <b>Import</b> button to import API collection.
+				<br>
+				<img src="img/ps_11.png" alt="" width="700" height="600"/>
+				<br><br>
+				<b>2.</b> Click on <b>Upload Files</b> button in the import dialogue box to browse the collection file <b>aadhar_collection.json</b>
+				<br>
+				<img src="img/ps_22.png" alt="" width="500" height="400"/>
+				<br>
+				<b>3.</b> Path to browse the aadhar_collection.json file:<b> /root/Desktop/user_repo/aadhar_collection.json </b>
+				Click on <b>Open</b> and then click on <b>Import</b> button to import the Collection.
+				<br>
+				<b>4.</b> Click on the <b>Collections</b> tab to see the imported Postman Collection and expand the <b>AadharController</b> folder to reveal the endpoints.
+				<br>
+				<img src="img/ps_33.png" alt="" width="700" height="600"/>
+				<br>
+				<b>5.</b> Test the endpoints (as per the below table) to check the output of Valid and InValid  cases.
+				<br> [Note: In Postman Collection, the port number used is same as the one which you are asked to set in application.properties file i.e. 5555 ]
+				
+				</ol>
                 <p>The below table provides the information about the REST-endpoints to be used, sample request to be sent
                     and the response format.</p>
 					<p><b>&nbsp;&nbsp;&nbsp;&nbsp;Note: In the below table value inside :&lt;&lt;&gt;&gt; refers to a dynamic value which can keep changing.Remove &lt;&lt;&gt;&gt; and use it as sample request  </b></p>
@@ -344,10 +365,15 @@
 			                       &quot;instructions.sh&quot; to reopen them.</li>
 
 			                   <li>Two buttons &#39;Execute&#39; and &#39;View Result&#39; are given in the environment. Click on
-			                       &#39;Execute&#39; to intermediately test your solution. In some cases, execution may take upto 5-7
+			                       &#39;Execute&#39; to intermediately test your solution and see the report. <b>You can also see the test analysis report on the desktop of VM.</b> In some cases, execution may take upto 5-7
 			                       mins
 			                      depending on the number of test cases.</li>
-
+								<li> If you face any error in pom.xml present in the project imported to STS (Spring Tool Suite) you must follow the below steps to get the error resolved
+								<br><b> Step 1: </b> Open <b>/root/.m2 </b>folder in VM and remove the repository folder present in .m2
+								<br><b>Step 2:</b> In STS, do a maven update for the project as given below:
+								<br><b> Right click on project -> Maven ->Update Project... -> select Force update of Snapshot/Release check box -> Click on OK </b>
+								
+								</li>
 			                   <li>You can continue working while execution is happening. Once execute completes the result will pop up
 			                       on
 			                       your window.</li>
