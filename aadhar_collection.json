@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9f1cabb3-4034-4941-9389-fa56a53f705b",
+		"_postman_id": "419ca409-e2bf-43e4-a0fe-9eb350308f29",
 		"name": "extservice",
 		"description": "This Collection contains APIs for extservice Application.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -11,6 +11,21 @@
 			"item": [
 				{
 					"name": "getValidAadharDetails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"getValidAadharDetails\", function () { \r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.not.be.error; \r",
+									"    pm.response.to.be.json; \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -22,7 +37,7 @@
 							],
 							"port": "5555",
 							"path": [
-								"aadhar",		
+								"aadhar",
 								"8756565987"
 							]
 						},
@@ -32,6 +47,26 @@
 				},
 				{
 					"name": "getAadharNotExist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"getAadharNotExist\", () => {\r",
+									"   pm.response.to.be.error; \r",
+									"   const expectedObject = {\r",
+									"    \"errors\": [{\r",
+									"            \"code\": \"customer.phone.invalid\",\r",
+									"            \"message\": \"Phone Number must be valid\"\r",
+									"        }]\r",
+									"  };\r",
+									"   pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -43,7 +78,7 @@
 							],
 							"port": "5555",
 							"path": [
-								"aadhar",								
+								"aadhar",
 								"8756565988"
 							]
 						}
@@ -52,6 +87,21 @@
 				},
 				{
 					"name": "ValidateAadhar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"ValidateAadhar\", () => {\r",
+									" pm.expect(pm.response.code).to.eql(200);\r",
+									" const jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData).to.eql(true);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -63,13 +113,13 @@
 							],
 							"port": "5555",
 							"path": [
-								"aadhar"								
+								"aadhar"
 							],
 							"query": [
 								{
 									"key": "aadharId",
 									"value": "123456789010"
-								},	
+								},
 								{
 									"key": "firstName",
 									"value": "Robert"
@@ -77,14 +127,29 @@
 								{
 									"key": "lastName",
 									"value": "Smith"
-								}								
-							]							
+								}
+							]
 						}
 					},
 					"response": []
 				},
 				{
 					"name": "ValidateAadharInvalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"ValidateAadharInvalid\", () => {\r",
+									" pm.expect(pm.response.code).to.eql(200);\r",
+									" const jsonData = pm.response.json();\r",
+									" pm.expect(jsonData).to.eql(false);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -96,13 +161,13 @@
 							],
 							"port": "5555",
 							"path": [
-								"aadhar"								
+								"aadhar"
 							],
 							"query": [
 								{
 									"key": "aadharId",
 									"value": "123456789010"
-								},	
+								},
 								{
 									"key": "firstName",
 									"value": "John"
@@ -110,14 +175,29 @@
 								{
 									"key": "lastName",
 									"value": "Smith"
-								}								
-							]							
+								}
+							]
 						}
 					},
 					"response": []
-				},				
+				},
 				{
 					"name": "updateAddressValid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"updateAddressValid\", function () { \r",
+									"    pm.response.to.have.status(200);\r",
+									"\tpm.response.to.not.be.error; \r",
+									"    pm.response.to.be.json; \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -139,8 +219,8 @@
 							"port": "5555",
 							"path": [
 								"aadhar",
-								"123456789010"								
-							]							
+								"123456789010"
+							]
 						},
 						"description": "This API updates the address of an existing customer."
 					},
@@ -148,6 +228,26 @@
 				},
 				{
 					"name": "updateAddressInvalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"updateAddressInvalid\", () => {\r",
+									"   pm.response.to.be.error; \r",
+									"   const expectedObject = {\r",
+									"    \"errors\": [{\r",
+									"            \"code\": \"customer.aadhar.invalid\",\r",
+									"            \"message\": \"Aadhar does not exists\"\r",
+									"        }]\r",
+									"  };\r",
+									"   pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -169,14 +269,53 @@
 							"port": "5555",
 							"path": [
 								"aadhar",
-								"123456789025"									
-							]							
+								"123456789025"
+							]
 						}
 					},
 					"response": []
-				}				
-				
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
