@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "419ca409-e2bf-43e4-a0fe-9eb350308f29",
+		"_postman_id": "b09e87c3-828d-4073-b834-67b22ee8a9b2",
 		"name": "extservice",
 		"description": "This Collection contains APIs for extservice Application.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -16,10 +16,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"getValidAadharDetails\", function () { \r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"response should be okay to process\", function () { \r",
 									"    pm.response.to.not.be.error; \r",
-									"    pm.response.to.be.json; \r",
+									"    const jsonData = pm.response.json();\r",
+									"    const jsonData1 = pm.request;\r",
+									"    pm.expect(jsonData.phoneNo).to.eql( jsonData1.url.path[1]);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -189,9 +190,10 @@
 							"script": {
 								"exec": [
 									"pm.test(\"updateAddressValid\", function () { \r",
-									"    pm.response.to.have.status(200);\r",
-									"\tpm.response.to.not.be.error; \r",
-									"    pm.response.to.be.json; \r",
+									"    pm.response.to.not.be.error; \r",
+									"    const jsonData = pm.response.json();\r",
+									"    const jsonData1 = pm.request.body.raw\r",
+									"    pm.expect(jsonData1).includes(jsonData.address);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -203,7 +205,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"address\":\"Hinjewadi, Pune\"\r\n }",
+							"raw": "{\r\n  \"address\":\"Hinjewadi, Pune\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -316,6 +318,12 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "phoneNo",
+			"value": "8756565987"
 		}
 	]
 }
