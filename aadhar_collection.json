@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b09e87c3-828d-4073-b834-67b22ee8a9b2",
+		"_postman_id": "64053243-261a-432d-a497-1989e695dd8c",
 		"name": "extservice",
 		"description": "This Collection contains APIs for extservice Application.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -16,11 +16,15 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"response should be okay to process\", function () { \r",
+									"pm.test(\"getValidAadharDetails\", function () { \r",
+									"    pm.expect(pm.response.code).to.eql(200);\r",
 									"    pm.response.to.not.be.error; \r",
-									"    const jsonData = pm.response.json();\r",
-									"    const jsonData1 = pm.request;\r",
-									"    pm.expect(jsonData.phoneNo).to.eql( jsonData1.url.path[1]);\r",
+									"    pm.response.to.have.jsonBody('aadharId','123456789010')\r",
+									"    .to.have.jsonBody('firstName','Robert')\r",
+									"    .to.have.jsonBody('lastName','Smith')\r",
+									"    .to.have.jsonBody('phoneNo','8756565987')\r",
+									"    .to.have.jsonBody('address','Hinjewadi, Pune')\r",
+									"    .to.have.jsonBody('aadharValid',false); \r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -190,10 +194,14 @@
 							"script": {
 								"exec": [
 									"pm.test(\"updateAddressValid\", function () { \r",
+									"     pm.expect(pm.response.code).to.eql(200);\r",
 									"    pm.response.to.not.be.error; \r",
-									"    const jsonData = pm.response.json();\r",
-									"    const jsonData1 = pm.request.body.raw\r",
-									"    pm.expect(jsonData1).includes(jsonData.address);\r",
+									"    pm.response.to.have.jsonBody('aadharId','123456789010')\r",
+									"    .to.have.jsonBody('firstName','Robert')\r",
+									"    .to.have.jsonBody('lastName','Smith')\r",
+									"    .to.have.jsonBody('phoneNo','8756565987')\r",
+									"    .to.have.jsonBody('address','Hinjewadi, Pune')\r",
+									"    .to.have.jsonBody('aadharValid',false); \r",
 									"});"
 								],
 								"type": "text/javascript"
