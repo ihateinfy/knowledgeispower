@@ -24,6 +24,9 @@
             <a class="uk-button uk-button-primary decpadding" href="#" id="questions" onclick="showQuestions()">
                 PROBLEM STATEMENT
             </a>
+			<a class="uk-button uk-button-primary decpadding" href="#" id="inputs" onclick="sampleInputs()">
+                TEST SCENARIO
+            </a>
         </div>
     </nav>
 
@@ -68,59 +71,53 @@
         </div>
         <br>
         <br>
-        <div style="display:none" id="questions_p">
+		<div style="display:none" id="inputs_p">
             <div>
-                <div align="center">
-                    <span class="heading"> Spring Microservices Hands-On Assessment </span>
-                </div>
-
-                <p><strong>Problem Statement:</strong></p>
-                <p>In this challenge, you would be building the microservice application - ExtService where CRUD operations on Aadhar data can be done.
-        The requirement is to use the concepts of Spring Boot and Spring Microservices to implement
-                    the following functionalities :</p>
-                <ul>
-                    <li>Validate Aadhar Details</li>
-					<li>View Aadhar Details</li>
-                    <li>Update Address</li>
-                </ul>
-                <ol>
-                    <li>You are provided with all the necessary code to implement the Aadhar Module functionalities (including
-                        the repository layers for database interactions).</li>
-                    <li>You have to implement the business layer(AadharServiceImpl) and presentation layer(AadharController)
-                       <b> only </b> for the required functionalities.</li>
-                     	<li> You are also provided with the basic Spring Boot project for working with Service Registry. You have to add the necessary configurations to work with extservice Microservice.</li>
-                    <li>The Aadhar module functionalities would be validated by executing a set of JUnit test cases.</li>
-                    
-                </ol>
-                <p><strong>Important: </strong> The project uses
-                    MySQL Database for data persistence. Use the table script given in db_scripts.sql file in resources with sample data. </p>
-
-                <p><strong>Functionalities to be implemented: </strong></p>
-				<p><b>Steps to verify REST endpoint using Postman.</b></p>
-				<p>We have made testing REST endpoints using Postman simpler for you by using Postman collection. Follow the below steps to import collection to the Postman and test the REST endpoints</p>
+                
+               
+<p><b>Steps to verify REST endpoint using Postman.</b></p>
+				<p>We have made testing REST endpoints using Postman simpler for you by using Postman collection. 
+				Follow the below steps to import collection to the Postman and test the REST endpoints. Also we have added test case for each endpoint to confirm whether the code is correct or not.
+				<br>
+				<b>NOTE: The test case are strictly bound with sample inputs, if you change inputs the test case may fails.</b></p>
 				<ol><b>1.</b> In the Postman window, click on <b>Import</b> button to import API collection.
 				<br>
 				<img src="img/ps_11.PNG" alt="" width="700" height="600"/>
 				<br><br>
 				<b>2.</b> Click on <b>Upload Files</b> button in the import dialogue box to browse the collection file <b>aadhar_collection.json</b>
 				<br>
-				<img src="img/ps_22.PNG" alt="" width="500" height="400"/>
+				<img src="img/ps_22.PNG" alt="" width="400" height="300"/>
 				<br>
 				<b>3.</b> Path to browse the aadhar_collection.json file:<b> /root/Desktop/user_repo/aadhar_collection.json </b>
 				Click on <b>Open</b> and then click on <b>Import</b> button to import the Collection.
+				<br>
+				<img src="img/ps_44.PNG" alt="" width="500" height="400"/>
 				<br>
 				<b>4.</b> Click on the <b>Collections</b> tab to see the imported Postman Collection and expand the <b>AadharController</b> folder to reveal the endpoints.
 				<br>
 				<img src="img/ps_33.PNG" alt="" width="700" height="600"/>
 				<br>
 				<b>5.</b> Test the endpoints (as per the below table) to check the output of Valid and InValid  cases.
+				<br><br><b>Steps to execute test cases</b><br>
+				<br>
+				<b>6.</b> Cilck on <b>Run</b> option to select and execute test cases.
+				<br>
+				<img src="img/ps_55.PNG" alt="" width="700" height="600"/>
+				<br>
+				<b>7.</b> Make sure that all the endpoints are selected or click on Select All and click on <b>Run extservice</b> button.
+				<br>
+				<img src="img/ps_66.PNG" alt="" width="700" height="600"/>
+				<br>
+				<b>8.</b> Check how many test cases are passed and failed.
+				<br>
+				<img src="img/ps_77.PNG" alt="" width="700" height="600"/>
+				<br>
 				<br> [Note: In Postman Collection, the port number used is same as the one which you are asked to set in application.properties file i.e. 5555 ]
-				
-				</ol>
-                <p>The below table provides the information about the REST-endpoints to be used, sample request to be sent
+			   <p>The below table provides the information about the REST-endpoints to be used, sample request to be sent
                     and the response format.</p>
 					<p><b>&nbsp;&nbsp;&nbsp;&nbsp;Note: In the below table value inside :&lt;&lt;&gt;&gt; refers to a dynamic value which can keep changing.Remove &lt;&lt;&gt;&gt; and use it as sample request  </b></p>
-                <table width="0" border="1">
+                                
+				<table width="0" border="1">
                     <tbody>
                         <tr>
                             <td valign="top" width="100">
@@ -268,7 +265,52 @@
                     </tbody>
                 </table>
 
-               
+               </div>
+			<div align="center">
+                <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showQuestions()">Prev</button>
+            </div>
+            <p style="line-height: 115%; margin: 0cm 0cm .0001pt 18.0pt;">
+                &nbsp;
+            </p>
+        </div>
+        <div style="display:none" id="questions_p">
+            <div>
+                <div align="center">
+                    <span class="heading"> Spring Microservices Hands-On Assessment </span>
+                </div>
+
+                <p><strong>Problem Statement:</strong></p>
+                <p>In this challenge, you would be building the microservice application - ExtService where CRUD operations on Aadhar data can be done.
+        The requirement is to use the concepts of Spring Boot and Spring Microservices to implement
+                    the following functionalities :</p>
+                <ul>
+                    <li>Validate Aadhar Details</li>
+					<li>View Aadhar Details</li>
+                    <li>Update Address</li>
+                </ul>
+                <ol>
+                    <li>You are provided with all the necessary code to implement the Aadhar Module functionalities (including
+                        the repository layers for database interactions).</li>
+                    <li>You have to implement the business layer(AadharServiceImpl) and presentation layer(AadharController)
+                       <b> only </b> for the required functionalities.</li>
+                     	<li> You are also provided with the basic Spring Boot project for working with Service Registry. You have to add the necessary configurations to work with extservice Microservice.</li>
+                    <li>The Aadhar module functionalities would be validated by executing a set of JUnit test cases.</li>
+                    
+                </ol>
+                <p><strong>Important: </strong> 
+				<ol>
+				<li>The project uses
+                    MySQL Database for data persistence. Use the table script given in db_scripts.sql file in resources with sample data. </li>
+					<li>Refer to the <b><a class="uk-button uk-button-primary decpadding" href="#" id="inputs" onclick="sampleInputs()">
+                TEST SCENARIO
+            </a></b>section for the URL and test data.</li>
+					</ol>
+					</p>
+
+                <p><strong>Functionalities to be implemented </strong></p>
+								
+				</ol>
+        
                 <p><strong>Acceptance Criteria:</strong></p>
                 <ol>
 				<li><strong>Validate Aadhar:</strong> This module validates the passed data.
@@ -334,8 +376,10 @@
             </div>
 
             <div align="center">
-                <button class="uk-button uk-button-primary uk-button-small uk-flex uk-flex-middle uk-icon" onclick="showInstructions()">Prev</button>
+                <button class="uk-button uk-button-primary uk-button-small" onclick="showInstructions()">Prev</button>&nbsp;&nbsp;
+                <button onclick="sampleInputs()" class="uk-button uk-button-primary uk-button-small">Next</button>
             </div>
+            
             <p style="line-height: 115%; margin: 0cm 0cm .0001pt 18.0pt;">
                 &nbsp;
             </p>
